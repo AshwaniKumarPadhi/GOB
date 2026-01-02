@@ -130,6 +130,38 @@ Access in browser:
 http://localhost:8080
 ```
 
+
+========
+Run Port-Forward in the Background (Most Common)
+kubectl port-forward svc/frontend 8080:80 &
+
+
+You will see something like:
+
+[1] 12345
+
+
+Now:
+
+The process runs in the background
+
+Your terminal is free
+
+App stays accessible
+
+To stop it later:
+
+jobs
+kill %1
+
+
+This is perfectly acceptable for local labs.
+========
+
+
+
+
+
 ---
 
 ## Phase 4 — Baseline Validation (Critical for SRE)
