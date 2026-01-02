@@ -1,0 +1,57 @@
+NAME                                        READY   STATUS             RESTARTS        AGE   IP           NODE              NOMINATED NODE   READINESS GATES
+pod/adservice-8576649cff-gwfm4              1/1     Running            0               8h    10.244.2.9   sre-lab-worker2   <none>           <none>
+pod/cartservice-7f7645758f-x49ks            0/1     CrashLoopBackOff   6 (4m41s ago)   29m   10.244.1.8   sre-lab-worker    <none>           <none>
+pod/checkoutservice-75b9cd684f-tdvc5        1/1     Running            0               8h    10.244.2.4   sre-lab-worker2   <none>           <none>
+pod/currencyservice-fd8f5dfb7-fcj4l         1/1     Running            0               8h    10.244.2.2   sre-lab-worker2   <none>           <none>
+pod/emailservice-7466dc585-5zpph            1/1     Running            0               8h    10.244.2.7   sre-lab-worker2   <none>           <none>
+pod/frontend-694b9f76cd-9bhlr               1/1     Running            0               8h    10.244.2.8   sre-lab-worker2   <none>           <none>
+pod/loadgenerator-7dd458dd5b-mj8xk          1/1     Running            0               8h    10.244.1.2   sre-lab-worker    <none>           <none>
+pod/paymentservice-6b76dfb449-4w4sp         1/1     Running            0               8h    10.244.1.4   sre-lab-worker    <none>           <none>
+pod/productcatalogservice-fb49fc9cc-rqmhj   1/1     Running            0               8h    10.244.2.3   sre-lab-worker2   <none>           <none>
+pod/recommendationservice-6f8f67d69-rvm8n   1/1     Running            0               8h    10.244.1.5   sre-lab-worker    <none>           <none>
+pod/redis-cart-6899b65948-gdcsj             1/1     Running            0               8h    10.244.2.6   sre-lab-worker2   <none>           <none>
+pod/shippingservice-55656785c7-kt82f        1/1     Running            0               8h    10.244.2.5   sre-lab-worker2   <none>           <none>
+
+NAME                            TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE   SELECTOR
+service/adservice               ClusterIP      10.96.135.200   <none>        9555/TCP       8h    app=adservice
+service/cartservice             ClusterIP      10.96.94.64     <none>        7070/TCP       8h    app=cartservice
+service/checkoutservice         ClusterIP      10.96.209.142   <none>        5050/TCP       8h    app=checkoutservice
+service/currencyservice         ClusterIP      10.96.101.0     <none>        7000/TCP       8h    app=currencyservice
+service/emailservice            ClusterIP      10.96.176.218   <none>        5000/TCP       8h    app=emailservice
+service/frontend                ClusterIP      10.96.136.46    <none>        80/TCP         8h    app=frontend
+service/frontend-external       LoadBalancer   10.96.249.235   <pending>     80:32686/TCP   8h    app=frontend
+service/kubernetes              ClusterIP      10.96.0.1       <none>        443/TCP        8h    <none>
+service/paymentservice          ClusterIP      10.96.23.250    <none>        50051/TCP      8h    app=paymentservice
+service/productcatalogservice   ClusterIP      10.96.18.14     <none>        3550/TCP       8h    app=productcatalogservice
+service/recommendationservice   ClusterIP      10.96.181.49    <none>        8080/TCP       8h    app=recommendationservice
+service/redis-cart              ClusterIP      10.96.161.232   <none>        6379/TCP       8h    app=redis-cart
+service/shippingservice         ClusterIP      10.96.207.186   <none>        50051/TCP      8h    app=shippingservice
+
+NAME                                    READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                                                                                       SELECTOR
+deployment.apps/adservice               1/1     1            1           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.4               app=adservice
+deployment.apps/cartservice             0/1     1            0           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.4             app=cartservice
+deployment.apps/checkoutservice         1/1     1            1           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.4         app=checkoutservice
+deployment.apps/currencyservice         1/1     1            1           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.4         app=currencyservice
+deployment.apps/emailservice            1/1     1            1           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.4            app=emailservice
+deployment.apps/frontend                1/1     1            1           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.4                app=frontend
+deployment.apps/loadgenerator           1/1     1            1           8h    main         us-central1-docker.pkg.dev/google-samples/microservices-demo/loadgenerator:v0.10.4           app=loadgenerator
+deployment.apps/paymentservice          1/1     1            1           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.4          app=paymentservice
+deployment.apps/productcatalogservice   1/1     1            1           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.4   app=productcatalogservice
+deployment.apps/recommendationservice   1/1     1            1           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.4   app=recommendationservice
+deployment.apps/redis-cart              1/1     1            1           8h    redis        redis:alpine                                                                                 app=redis-cart
+deployment.apps/shippingservice         1/1     1            1           8h    server       us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.4         app=shippingservice
+
+NAME                                              DESIRED   CURRENT   READY   AGE     CONTAINERS   IMAGES                                                                                       SELECTOR
+replicaset.apps/adservice-8576649cff              1         1         1       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/adservice:v0.10.4               app=adservice,pod-template-hash=8576649cff
+replicaset.apps/cartservice-546c548494            0         0         0       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.4             app=cartservice,pod-template-hash=546c548494
+replicaset.apps/cartservice-7f7645758f            1         1         0       7h29m   server       us-central1-docker.pkg.dev/google-samples/microservices-demo/cartservice:v0.10.4             app=cartservice,pod-template-hash=7f7645758f
+replicaset.apps/checkoutservice-75b9cd684f        1         1         1       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/checkoutservice:v0.10.4         app=checkoutservice,pod-template-hash=75b9cd684f
+replicaset.apps/currencyservice-fd8f5dfb7         1         1         1       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/currencyservice:v0.10.4         app=currencyservice,pod-template-hash=fd8f5dfb7
+replicaset.apps/emailservice-7466dc585            1         1         1       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/emailservice:v0.10.4            app=emailservice,pod-template-hash=7466dc585
+replicaset.apps/frontend-694b9f76cd               1         1         1       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/frontend:v0.10.4                app=frontend,pod-template-hash=694b9f76cd
+replicaset.apps/loadgenerator-7dd458dd5b          1         1         1       8h      main         us-central1-docker.pkg.dev/google-samples/microservices-demo/loadgenerator:v0.10.4           app=loadgenerator,pod-template-hash=7dd458dd5b
+replicaset.apps/paymentservice-6b76dfb449         1         1         1       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/paymentservice:v0.10.4          app=paymentservice,pod-template-hash=6b76dfb449
+replicaset.apps/productcatalogservice-fb49fc9cc   1         1         1       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/productcatalogservice:v0.10.4   app=productcatalogservice,pod-template-hash=fb49fc9cc
+replicaset.apps/recommendationservice-6f8f67d69   1         1         1       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/recommendationservice:v0.10.4   app=recommendationservice,pod-template-hash=6f8f67d69
+replicaset.apps/redis-cart-6899b65948             1         1         1       8h      redis        redis:alpine                                                                                 app=redis-cart,pod-template-hash=6899b65948
+replicaset.apps/shippingservice-55656785c7        1         1         1       8h      server       us-central1-docker.pkg.dev/google-samples/microservices-demo/shippingservice:v0.10.4         app=shippingservice,pod-template-hash=55656785c7
